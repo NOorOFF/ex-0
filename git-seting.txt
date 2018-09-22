@@ -41,6 +41,11 @@ $ git config  --list 显示所有配置信息
 通过 git checkout -- <file.name> 将暂存区的内容撤到工作区，如无暂存区则是版本库撤到工作区
 通过 git commit --amend 可对最近一次提交做出额外补充（合并在一起）
 
+删除操作
+通过 git rm <file.name> 将暂存区内容删除（在无工作区时）
+通过 git rm -f <file.name> 将暂存区及工作区内容删除(再暂存区有时)
+通过 git rm --cached <file.name> 仅将暂存区内容删除
+
 编辑器变更
 $ git config --global core.editor "'D:\Sublime Text 3\sublime_text.exe' -w -multilnst -notabbar -nosession -noPlugin"
 
