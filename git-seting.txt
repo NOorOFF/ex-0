@@ -47,8 +47,11 @@ $ git config  --list 显示所有配置信息
 通过 git rm --cached <file.name> 仅将暂存区内容删除
 
 恢复操作
-通过 git <checkout commit标识码> <file.name> 还原文件 
-
+通过 git checkout <版本标识码> <file.name> 还原文件 
+通过 git reset --hard <版本标识码> 还原整个版本
+通过 git reset --hard --hard HEAD^/HEAD~num 还原到上个版本/上num个版本
+通过 git reflog 查找历史中的<版本标识码> 并 恢复到之前或之后的版本
+ 
 编辑器变更
 $ git config --global core.editor "'D:\Sublime Text 3\sublime_text.exe' -w -multilnst -notabbar -nosession -noPlugin"
 
