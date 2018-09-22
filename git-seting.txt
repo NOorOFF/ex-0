@@ -31,8 +31,8 @@ $ git config  --list 显示所有配置信息
 
 通过 $ git log 查看历史
 
-通过
-
+通过 $
+ 
 
 编辑器变更
 $ git config --global core.editor "'D:\Sublime Text 3\sublime_text.exe' -w -multilnst -notabbar -nosession -noPlugin"
