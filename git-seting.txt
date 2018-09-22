@@ -24,6 +24,12 @@ $ git config  --list 显示所有配置信息
 
 通过 $ git status 查看文件状态
 通过 $ git add 文件名 传入暂存区 
+通过 $ git add  后缀可传多个
+通过 $ git commit 做一些说明 并传到版本库
+-m "说明" 
+-a -m "说明" 跳过 add 直接到版本库
+
+通过 $ git log 查看历史
 
 
 
