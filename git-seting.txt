@@ -31,8 +31,12 @@ $ git config  --list 显示所有配置信息
 
 通过 $ git log 查看历史
 
-通过 $
- 
+对比操作
+通过 $ git diff 对比与暂存区
+通过 $ git diff --cached(staged) 对比暂存区与版本库
+通过 $ git diff master 对比工作区与版本库
+
+撤销操作
 
 编辑器变更
 $ git config --global core.editor "'D:\Sublime Text 3\sublime_text.exe' -w -multilnst -notabbar -nosession -noPlugin"
