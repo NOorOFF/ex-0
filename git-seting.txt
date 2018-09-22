@@ -1,3 +1,7 @@
+工作区 
+暂存区
+  作为过渡层、避免误操作、保护工作区和版本区、分支处理
+版本库
 git 配置
 
 初始设置
@@ -54,12 +58,3 @@ $ git config  --list 显示所有配置信息
  
 编辑器变更
 $ git config --global core.editor "'D:\Sublime Text 3\sublime_text.exe' -w -multilnst -notabbar -nosession -noPlugin"
-
-
-
-工作区 
-
-暂存区
-  作为过渡层、避免误操作、保护工作区和版本区、分支处理
-
-版本库
