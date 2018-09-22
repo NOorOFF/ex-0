@@ -46,6 +46,9 @@ $ git config  --list 显示所有配置信息
 通过 git rm -f <file.name> 将暂存区及工作区内容删除(再暂存区有时)
 通过 git rm --cached <file.name> 仅将暂存区内容删除
 
+恢复操作
+通过 git <checkout commit标识码> <file.name> 还原文件 
+
 编辑器变更
 $ git config --global core.editor "'D:\Sublime Text 3\sublime_text.exe' -w -multilnst -notabbar -nosession -noPlugin"
 
