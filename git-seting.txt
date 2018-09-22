@@ -1,0 +1,39 @@
+git 配置
+
+初始设置
+$ git config --global user.name "tree4"
+$ git config --global user.email "1715030003@qq.com"
+$ git config --global color.ui auto
+输入$ ~/.gitconfig 查看
+
+私人密钥设置
+$ ssh-keygen -t rsa -C  -1715030003@qq.com
+
+公共密钥生成
+$ cat ~/.ssh/id_rsa.pub
+后添加至git上
+
+通信
+$ ssh -T git@github.com
+
+项目开始进行初始设置
+$ git config --global user.name "tree4"
+$ git config --global user.name 可得到tree4
+$ git config  --list 显示所有配置信息
+
+
+通过 $ git status 查看文件状态
+通过 $ git add 文件名 传入暂存区 
+
+
+
+
+
+
+
+工作区 
+
+暂存区
+  作为过渡层、避免误操作、保护工作区和版本区、分支处理
+
+版本库
