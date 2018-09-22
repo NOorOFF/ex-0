@@ -37,6 +37,8 @@ $ git config  --list 显示所有配置信息
 通过 $ git diff master 对比工作区与版本库
 
 撤销操作
+通过 git reset HEAD <file.name> 将暂存区内容撤到工作区
+通过 git checkout -- <file.name> 将暂存区的内容撤到工作区，如无则是版本库撤到工作区
 
 编辑器变更
 $ git config --global core.editor "'D:\Sublime Text 3\sublime_text.exe' -w -multilnst -notabbar -nosession -noPlugin"
