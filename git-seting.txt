@@ -100,13 +100,12 @@ git branch -d/-D <分支名> 删除/强制删除分支
 git tag 查看标签
 git tag v版本号（一般是x.x.x） 打标签
 git tag -d v版本号（一般是x.x.x） 删除标签
+git push origin v版本号  上传版本并更新
 
 ###其他操作
 mkdir <文件夹> 目录下创建文件夹
 编辑器 <文件> 创建文件
 ls 查看文件当前目录
-
-
 通过https://pages.github.com/指引托管个人免费网站
 
 
