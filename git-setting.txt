@@ -1,0 +1,113 @@
+#git学习笔记
+
+##git 配置
+
+###编辑器变更 （这是针对于commit）
+$ git config --global core.editor "'D:\Sublime Text 3\sublime_text.exe' -w -multilnst -notabbar -nosession -noPlugin"
+
+###编辑器设置 
+在 git/m64/bin下创建无后缀文件 st 
+内容如下（windows）
+#!/bin/sh
+'D:\\Sublime Text 3\\sublime_text.exe' $1 & 
+--------------------------------------------------分隔符
+$ st <文件名即可> 
+
+
+##git认知
+
+初始设置
+$ git config --global user.name "tree4"
+$ git config --global user.email "1715030003@qq.com"
+$ git config --global color.ui auto
+输入$ ~/.gitconfig 查看
+
+私人密钥设置
+$ ssh-keygen -t rsa -C  -1715030003@qq.com
+
+公共密钥生成
+$ cat ~/.ssh/id_rsa.pub
+后添加至git上
+
+通信
+$ ssh -T git@github.com
+
+项目开始进行初始设置
+$ git config --global user.name "tree4"
+$ git config --global user.name 可得到tree4
+$ git config  --list 显示所有配置信息
+
+###git三大区说明
+工作区 
+暂存区
+  作为过渡层、避免误操作、保护工作区和版本区、分支处理
+版本库
+
+通过 $ git status 查看文件状态
+通过 $ git add 文件名 传入暂存区 
+通过 $ git add  后缀可传多个
+通过 $ git commit 跳出编辑器编辑说明 
+git commit -m "说明" 
+git commit -a -m "说明" 跳过 add 直接到版本库
+通过 $ git log 查看历史
+
+###对比操作
+通过 $ git diff 对比与暂存区
+通过 $ git diff --cached(staged) 对比暂存区与版本库
+通过 $ git diff master 对比工作区与版本库
+
+###撤销操作
+通过 git reset HEAD <file.name> 将暂存区状态还原到工作区状态
+通过 git checkout -- <file.name> 将暂存区的内容撤到工作区，如无暂存区则是版本库撤到工作区
+通过 git commit --amend 可对最近一次提交做出额外补充（合并在一起）
+
+###删除操作
+通过 git rm <file.name> 将暂存区内容删除（在无工作区时）
+通过 git rm -f <file.name> 将暂存区及工作区内容删除(再暂存区有时)
+通过 git rm --cached <file.name> 仅将暂存区内容删除
+
+###恢复操作
+通过 git checkout <版本标识码> <file.name> 还原文件 
+通过 git reset --hard <版本标识码> 还原整个版本
+通过 git reset --hard --hard HEAD^/HEAD~num 还原到上个版本/上num个版本
+通过 git reflog 查找历史中的<版本标识码> 并 恢复到之前或之后的版本
+ 
+###上传
+通过 git remote 获取远程仓库名
+通过 git push <远程仓库名> <分支> 上传
+
+###多人协作冲突解决
+git fetch 
+	git diff master origin/master 先比较
+	git merge orgin/master	再合并
+git pull 上面一步头，无手动比较
+
+###开源项目协作
+fork（别人)
+pull request（拉去请求)
+
+###分支
+git branch 查看分支
+git branch <分支名> 建立分支
+git checkout <分支名> 跳转到分支
+git checkout -b <分支名> 建立分支并跳转到分支
+git merge <分支> 与分支合并 （合并完以后被合并的变，合并的保持原有）
+git branch --merged 查看与当前分支合并的分支
+git branch --no-merged 查看与当前分支没有合并的分支
+git branch -d/-D <分支名> 删除/强制删除分支
+
+###打标签
+git tag 查看标签
+git tag v版本号（一般是x.x.x） 打标签
+git tag -d v版本号（一般是x.x.x） 删除标签
+git push <远端> v版本号  上传版本并更新
+
+###其他操作
+mkdir <文件夹> 目录下创建文件夹
+编辑器 <文件> 创建文件
+ls 查看文件当前目录
+通过https://pages.github.com/指引托管个人免费网站
+
+
+
+
