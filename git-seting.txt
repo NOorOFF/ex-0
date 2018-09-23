@@ -70,9 +70,14 @@ git fetch
 git pull 上面一步头，无手动比较
 
 开源项目协作
-叉子（别人)
-拉请求（拉去请求)
+fork（别人)
+pull request（拉去请求)
 
+分支
+git branch 查看分支
+git branch <分支名> 建立分支
+git checkout <分支名> 跳转到分支
+git checkout -b <分支名> 建立分支并跳转到分支
 编辑器变更 （这是针对于commit）
 $ git config --global core.editor "'D:\Sublime Text 3\sublime_text.exe' -w -multilnst -notabbar -nosession -noPlugin"
 
@@ -84,5 +89,3 @@ $ git config --global core.editor "'D:\Sublime Text 3\sublime_text.exe' -w -mult
 st <文件名即可>
 
 
-#who can help me
-already up to date
