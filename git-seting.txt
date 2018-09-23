@@ -66,5 +66,12 @@ git fetch
 	git merge orgin/master	再合并
 git pull 上面一步头，无手动比较
 
-编辑器变更
+编辑器变更 （这是针对于commit）
 $ git config --global core.editor "'D:\Sublime Text 3\sublime_text.exe' -w -multilnst -notabbar -nosession -noPlugin"
+
+编辑器设置 
+在 git/m64/bin下创建无后缀文件 st 
+内容如下（windows）
+#!/bin/sh
+'D:\\Sublime Text 3\\sublime_text.exe' $1 &
+st <文件名即可>
