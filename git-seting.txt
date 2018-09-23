@@ -1,5 +1,4 @@
-#who can help me
-already up to date
+git学习
 
  
 工作区 
@@ -79,3 +78,7 @@ $ git config --global core.editor "'D:\Sublime Text 3\sublime_text.exe' -w -mult
 #!/bin/sh
 'D:\\Sublime Text 3\\sublime_text.exe' $1 &
 st <文件名即可>
+
+
+#who can help me
+already up to date
