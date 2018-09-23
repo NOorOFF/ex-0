@@ -79,6 +79,10 @@ git branch <分支名> 建立分支
 git checkout <分支名> 跳转到分支
 git checkout -b <分支名> 建立分支并跳转到分支
 git merge <分支> 与分支合并
+git branch --merged 查看与当前分支合并的分支
+git branch --no-merged 查看与当前分支没有合并的分支
+git branch -d/-D <分支名> 删除/强制删除分支
+
 编辑器变更 （这是针对于commit）
 $ git config --global core.editor "'D:\Sublime Text 3\sublime_text.exe' -w -multilnst -notabbar -nosession -noPlugin"
 
