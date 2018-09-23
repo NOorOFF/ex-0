@@ -60,6 +60,10 @@ $ git config  --list 显示所有配置信息
 通过 git reset --hard --hard HEAD^/HEAD~num 还原到上个版本/上num个版本
 通过 git reflog 查找历史中的<版本标识码> 并 恢复到之前或之后的版本
  
+上传
+通过 git remote 获取远程仓库名
+通过 git push <远程仓库名> <分支> 上传
+
 多人协作冲突解决
 git fetch 
 	git diff master origin/master 先比较
