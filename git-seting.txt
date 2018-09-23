@@ -83,6 +83,11 @@ git branch --merged 查看与当前分支合并的分支
 git branch --no-merged 查看与当前分支没有合并的分支
 git branch -d/-D <分支名> 删除/强制删除分支
 
+打标签
+git tag 查看标签
+git tag v版本号（一般是x.x.x） 打标签
+git tag -d v版本号（一般是x.x.x） 删除标签
+
 编辑器变更 （这是针对于commit）
 $ git config --global core.editor "'D:\Sublime Text 3\sublime_text.exe' -w -multilnst -notabbar -nosession -noPlugin"
 
