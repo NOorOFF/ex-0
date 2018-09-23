@@ -69,6 +69,10 @@ git fetch
 	git merge orgin/master	再合并
 git pull 上面一步头，无手动比较
 
+开源项目协作
+叉子（别人)
+拉请求（拉去请求)
+
 编辑器变更 （这是针对于commit）
 $ git config --global core.editor "'D:\Sublime Text 3\sublime_text.exe' -w -multilnst -notabbar -nosession -noPlugin"
 
