@@ -1,0 +1,121 @@
+@charset "UTF-8";
+/*变量声明*/
+/*变量引用*/
+.a { width: 500px; }
+
+/*选择器嵌套*/
+.b + h1 { color: red; }
+.b + h1 > span { color: #000; }
+.b h2 { color: red; }
+.b h2 span { color: yellow; }
+.b ~ h3 { color: red; }
+
+/*父属性表示符&*/
+.c a:hover { text-direction: underline; }
+.b .c { color: blue; }
+
+/*属性嵌套*/
+.d { border-color: red; border-style: solid; border-width: 500px; padding: 5px; padding-padding-top: 0; }
+
+/*使用SASS部分文件*/
+body { background-color: blue; }
+
+/*!default(_imp.scss中有) 如果这个变量被声明赋值了，那就用它声明的值，否则就用这个默认值*/
+body { z-index: 5; }
+
+/*嵌套导入*/
+body ul { list-style: none; }
+body ul li { float: left; }
+
+/*混合器*/
+/*混合器用展示性的描述，类用语义化描述*/
+.e { -moz-border-radius: 5px; -ms-border-radius: 5px; -o-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px; }
+.e p { font-size: 12px; }
+.e p a:hover { color: red; }
+.f .e p a { background-color: red; }
+
+/*混合器传参*/
+.g { float: left; width: 200px; height: 500px; height: 1000px; }
+
+.g2 { float: left; width: 500px; height: 500px; }
+
+.g3 { float: right; width: 500px; height: 200px; }
+
+/*继承*/
+.h, .f { color: red; }
+
+.f { font-size: 5px; }
+
+.h h5, .f h5 { background-color: red; }
+
+/*继承的高级用法*/
+.important.error, .seriousError, #main .important.seriousError, .error, #main .seriousError { color: red; }
+
+/*假如一条样式规则继承了一个复杂的选择器，那么它只会继承这个复杂选择器命中的元素所应用的样式*/
+.error h6, #main .seriousError h6 { color: blue; }
+
+.important.error h6, .seriousError h6, #main .important.seriousError h6 { color: yellow; }
+
+#main .seriousError { color: #000; }
+
+.error h6, #main .seriousError h6 { color: brower; }
+
+/*interpolation*/
+ex-1 { color: red; content: "-------$interp-------"; }
+
+.ex-type { content: number; content: number; content: string; content: null; content: map; content: list; content: bool; content: color; }
+
+/*数字函数*/
+/*
+abs(),floor(),ceil(),round(),percentage(),min(),max() */
+.a { num: 12.5%; }
+
+/*z字符串函数*/
+/*to-upper/lower-case(),str-length/index/insert()*/
+.b { content: "str"; content: "STR"; content: "str"; content: 3; content: 1; content: "xxxstr"; content: "str"; }
+
+/*列表函数*/
+/*length(),nth(),index(),append(),join()*/
+.c { content: 2; content: 2; content: 4; content: 5px 1px; content: 5px; content: 1; content: 5em, 1px, 0px, 2px, 10px 9px; content: 5em 1px 0px 2px; content: 5em 1px 0px 2px 5px 1px 0px 2px; content: 5em 1px 0px 2px; }
+
+/*map函数*/
+/*map-get(),map-keys(),map-values(),map-has-key()*/
+.d { content: 5px 1px, 0px 2px; content: 2; content: "first", 5px 1px, 0px 2px; content: first, second; content: false; content: 3; content: 2; content: 1; content: 2; }
+
+/*boolean 有and or not*/
+/*@if*/
+.e { content: "$nothing变量not了一下"; content: "null!=false"; content: "1!='1'"; content: "1em==1 and 1px==1"; content: "str=='str'"; }
+
+/*@for*/
+.f .col-1 { width: 25%; }
+.f .col-2 { width: 50%; }
+.f .col-3 { width: 75%; }
+.f .col-4 { width: 100%; }
+.f ._col-1 { width: 25%; }
+.f ._col-2 { width: 50%; }
+.f ._col-3 { width: 75%; }
+
+/*@each*/
+.g .icon-success { background: url(img/icons/success.png); }
+.g .icon-error { background: url(img/icons/error.png); }
+.g .icon-warning { background: url(img/icons/warning.png); }
+
+/*@while*/
+.item-6 { content: 6; }
+
+.item-5 { content: 5; }
+
+.item-4 { content: 4; }
+
+.item-3 { content: 3; }
+
+.item-2 { content: 2; }
+
+.item-1 { content: 1; }
+
+/*自定义函数*/
+.sum { content: 62px; }
+
+/*警告与错误*/
+
+/*# sourceMappingURL=ex_sass.css.map */

@@ -1,0 +1,274 @@
+/*变量声明*/
+$width:500px;
+/*变量引用*/
+.a{width:$width;}
+/*选择器嵌套*/
+.b{
+	+ h1{
+		color:red;
+		> span{
+			color:#000;
+		}
+	}
+	h2{
+		color:red;
+		span{
+			color:yellow;
+		}
+	}
+	~ h3{
+		color:red;
+	}
+
+}
+/*父属性表示符&*/
+.c{
+	a{
+		&:hover{
+			text-direction:underline;
+		}
+	}
+	.b &{
+		color:blue;
+	}
+}
+/*属性嵌套*/
+.d{
+	border:{
+		color:red;
+		style:solid;
+		width:$width;
+	}
+	padding:5px{
+		padding-top:0;
+	}
+
+}
+/*使用SASS部分文件*/
+@import "imp";
+/*!default(_imp.scss中有) 如果这个变量被声明赋值了，那就用它声明的值，否则就用这个默认值*/
+$default:5;
+
+body{z-index:$default;}
+/*嵌套导入*/
+body{
+	@import "imp2";
+}
+/*混合器*//*混合器用展示性的描述，类用语义化描述*/
+@mixin rounded-corners{
+	-moz-border-radius:5px;
+	-ms-border-radius:5px;
+	-o-border-radius:5px;
+	-webkit-border-radius:5px;
+	border-radius:5px;
+	p{font-size:12px;
+		a{
+			&:hover{color:red;}
+			.f &{background-color:red;}
+		}
+	}
+}
+.e{
+	@include rounded-corners;
+}
+/*混合器传参*/
+@mixin flow($float,$width,$height){
+	float:$float;
+	width:$width;
+	height:$height;
+	height:1000px;
+}
+@mixin flow2($float,$width:$width,$height:$width){
+	float:$float;
+	width:$width;
+	height:$height;
+}
+.g{
+	@include flow(left,200px,500px);
+}
+.g2{
+	@include flow2(left);
+}
+.g3{
+	@include flow2($float:right,$height:200px);
+}
+
+/*继承*/
+.h{color:red;}
+.f{font-size:5px;@extend .h;}
+.h h5{background-color:red;}
+
+/*继承的高级用法*/
+.important.error,.error{color:red;}
+.seriousError{
+	@extend .important.error
+} 
+/*假如一条样式规则继承了一个复杂的选择器，那么它只会继承这个复杂选择器命中的元素所应用的样式*/
+.error h6{color:blue;}
+.important.error h6{color:yellow;}
+
+#main .seriousError{
+	@extend .error;
+	color:#000;
+} 
+.error h6{color:brower;}
+
+/*interpolation*/
+$interp:'ex';
+#{$interp}-1{
+	color:red;
+	content:"-------$interp-------";
+}
+$ex-num:1px;$ex-num2:1;
+$ex-string:'qwer';
+$ex-null:null;
+$ex-map:(a:'aa',b:'bb');
+$ex-list:1px solid #000;
+$ex-boolean:true;
+$ex-color:red;
+.ex-type{
+	content:type-of($ex-num);
+	content:type-of($ex-num2);
+	content:type-of($ex-string);
+	content:type-of($ex-null);
+	content:type-of($ex-map);
+	content:type-of($ex-list);
+	content:type-of($ex-boolean);
+	content:type-of($ex-color);
+}
+/*数字函数*/
+/*
+abs(),floor(),ceil(),round(),percentage(),min(),max()
+ */
+.a{
+	num:percentage(25px/200px);
+}
+/*z字符串函数*/
+
+/*to-upper/lower-case(),str-length/index/insert()*/
+$str:'str';
+.b{
+	content:to-lower-case($str);//不干涉原变量
+	content:to-upper-case($str);//不干涉原变量
+	content:$str;
+	content:str-length($str);
+	content:str-index($str,"s");//这里索引从一开始
+	content:str-insert($str,'xxx',1);//不干涉原变量
+	content:$str;
+}
+
+/*列表函数*/
+/*length(),nth(),index(),append(),join()*/
+$list1:5px 1px, 0px 2px;
+$list2:(5px 1px) (0px 2px);
+$list3:5em 1px 0px 2px;
+.c{
+	content:length($list1);
+	content:length($list2);
+	content:length($list3);
+	content:nth($list2,1);
+	content:nth(nth($list1,1),1);
+	content:index($list3,5);
+	content:append($list3,10px 9px,comma);//不影响原变量
+	content:$list3;
+	content:join($list3,$list2,space);//不影响原变量
+	content:$list3;
+}
+
+/*map函数*/
+/*map-get(),map-keys(),map-values(),map-has-key()*/
+$map:(first:'first',second:$list1);
+.d{
+	content: map-get($map,second);
+	content: length($map);
+	content: map-values($map);
+	content: map-keys($map); 
+	content:map-has-key($map,third);
+	content:length(map-merge($map,(a:5)));//不影响原变量
+	content:length($map);
+	content:length(map-remove($map, first));//不影响原变量
+	content:length($map);
+}
+/*boolean 有and or not*/
+
+/*@if*/
+$nothing:null;
+$str:'str';
+.e{
+	@if not($nothing){
+		content:"$nothing变量not了一下"
+	}
+	@if $nothing==false{
+		content:"null==false";
+	}@else{
+		content:"null!=false";
+	}
+	@if 1!='1'{
+		content:"1!='1'";
+	}
+	@if 1em==1 and 1px==1{
+		content:"1em==1 and 1px==1";
+	}
+	@if str=='str'{
+		content:"str=='str'";
+	}
+}
+
+/*@for*/
+.f{
+	@for $i from 1 through 4{
+		.col-#{$i}{
+			width:percentage(1/4*$i);
+		}
+	}
+
+	@for $i from 1 to 4{
+		._col-#{$i}{
+			width:percentage(1/4*$i);
+		}
+	}
+}
+
+/*@each*/
+$icons: success error warning;
+.g{
+	@each $icon in $icons{
+		.icon-#{$icon}{
+			background:url(img/icons/#{$icon}.png);
+		}
+	}
+}
+
+/*@while*/
+$i:6;
+@while $i>0{
+	.item-#{$i}{
+		content:$i;
+	}
+	$i: $i - 1;
+}
+
+/*自定义函数*/
+@function sum($a,$b){
+	@return $a+$b;
+}
+.sum{
+	content:sum(1+55px,6);
+}
+
+/*警告与错误*/
+$fuck:'fuck';
+$love:'love';
+.warn{
+	@if $fuck==fuck{
+		@warn "不准爆粗口";
+	}
+}
+
+.error{
+	@if $love == 'love'{
+		@error "不知道啊";
+	}
+}
+
+/*ps：这是根据sass官网以及宁浩网学习所得*/
