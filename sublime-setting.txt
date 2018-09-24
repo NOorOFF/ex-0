@@ -17,7 +17,74 @@ Install Package 下载包资源
 后通过Install Package安装插件
 
 ###插件安装
-Emmet 高效编写HTML&CSS代码
+Emmet 高效编写HTML&CSS代码 
+sublimecodeintel 代码补全(总觉得st自带的就已经够了)
+sublimeLinter 检测代码规范 （需要安装先在sublime中配置node后再进行配置后才可使用）
+--htmlhint
+--csslint
+--jshint
+sidebarenhancements 侧边栏功能增强(浏览器快捷键设置也需要先装上它)
+color highlighter css高亮显示
+file history 文件历史纪录
+####很好的参考
+http://www.cnblogs.com/watson8544/p/5652725.html
+
+###sublime node环境配置(首先你要有在自己电脑上装上node)
+通过地址https://github.com/tanepiper/SublimeText-Nodejs去github上下载该包，解压放到Sublime Text3\Packages 目录下
+####配置修改
+在该nodejs目录下的Nodejs.sublime-settings文件修改
+*这是我的设置*
+"node_command": "C:\\Program Files\\nodejs\\node.exe" 
+"npm_command": "C:\\Program Files\\nodejs\\npm.cmd"
+[ctrl+b] 跳出面板
+####注意
+*发生意外错误*指的是按常理可以运行却无法成功运行的错误
+请查看Tools->Build System 中对应是否错误
+*文字乱码*的话在同目录的Nodejs.sublime-build下将
+"encoding": "cp1252" ===>>> "encoding": "cp936"
+
+###配置sublimeLinter
+调出【cmd】 调出npm在本地全局安装
+npm install -g csslint htmlhint jshint --registry=htto://registry.npm.taobao.org
+【完成】
+
+###sass配置
+先再https://rubyinstaller.org/downloads/下载配置（默认在c盘就好，其他的可能会出问题）
+配置环境环境变量->系统变量的【Path】中加上C:\Ruby24-x64\bin（这是我的）
+安装插件  package install->  sass和sass-build
+[cmd] gem install sass 
+有篇文章很好可以看看http://www.cnblogs.com/imwtr/p/6010550.html
+
+
+
+
+###一些设置
+####Preferences->setting 
+#####user
+"auto_find_in_selection": true  所选文字内选择（ctrl+f）
+*注意*
+失灵时重新选择范围然后再ctrl+f 或 ctrl+h 或ctrl+f ctrl+h  可以修正
+
+####Preferences->Key Bindings
+#####浏览器快捷键设置
+[
+	{ "keys": ["alt+f1"],
+	   "command": "side_bar_files_open_with",
+	   "args": { "application": "浏览器应用路径",
+	   "extensions": ".*", 
+	   "paths": [] } 
+	 }
+]
+
+
+
+
+
+
+
+
+
+
 
 
 
