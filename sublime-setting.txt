@@ -1,4 +1,4 @@
-#sublime笔记
+﻿#sublime笔记
 
 ##sublime配置
 
@@ -45,7 +45,7 @@ http://www.cnblogs.com/watson8544/p/5652725.html
 
 ###配置sublimeLinter
 调出【cmd】 调出npm在本地全局安装
-npm install -g csslint htmlhint jshint --registry=htto://registry.npm.taobao.org
+npm install -g csslint htmlhint jshint --registry=https://registry.npm.taobao.org
 【完成】
 
 ###sass配置
